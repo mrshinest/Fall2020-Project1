@@ -63,7 +63,7 @@ def define_discriminator(in_shape=(28,28,1), n_classes=128):
 	em = Embedding(n_classes, 50)(in_label)
 	# scale up to image dimensions with linear activation
 	n_nodes = in_shape[0] * in_shape[1]
-	em = Dense(n_nodes)(li)
+	em = Dense(n_nodes)(em)
 	# reshape to additional channel
 	em = Reshape((in_shape[0], in_shape[1], 1))(em)
 	in_image = Input(shape=in_shape)
